@@ -1,4 +1,4 @@
-# Starter Project
+# ShopSim
 ---
 
 *Copyright Improbable Worlds Ltd, 2017*
@@ -9,7 +9,7 @@
 
 ## Introduction
 
-This is a SpatialOS starter project with useful core features that you can extend to build your own SpatialOS application.
+Fork of the Spatial Starter project.
 
 It contains:
 
