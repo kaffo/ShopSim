@@ -41,6 +41,23 @@ namespace Assets.Gamelogic.EntityTemplates
             return playerTemplate;
         }
 
+        public static Entity CreatePlayerShopTemplate(string clientId)
+        {
+            var playerItem = new ShopItem(Vector3f.ZERO, new Quaternion(0, 0, 0, 0), ItemType.PLAYER);
+            var shopList = new Improbable.Collections.List<ShopItem>();
+            shopList.Add(playerItem);
+            var playerShopTemplate = EntityBuilder.Begin()
+                .AddPositionComponent(Improbable.Coordinates.ZERO.ToUnityVector(), CommonRequirementSets.PhysicsOnly)
+                .AddMetadataComponent(entityType: SimulationSettings.PlayerPrefabName)
+                .SetPersistence(true)
+                .SetReadAcl(CommonRequirementSets.PhysicsOrVisual)
+                .AddComponent(new Rotation.Data(new Quaternion(0, 0, 0, 0)), CommonRequirementSets.PhysicsOnly)
+                .AddComponent(new PlayerShop.Data(shopList), CommonRequirementSets.PhysicsOnly)
+                .Build();
+
+            return playerShopTemplate;
+        }
+
         public static Entity CreateCubeTemplate()
         {
             var cubeTemplate = EntityBuilder.Begin()

@@ -1,0 +1,6 @@
+===COMMANDS TO RUN===
+
+!!CHECK VR IS ENABLED!!
+spatial worker build --target=deployment
+spatial cloud upload ShopSimv0.0.1
+spatial cloud launch ShopSimv0.0.1 cloud_launch.json shopsim --snapshot=snapshots/default.snapshot --cluster=eu4-prod

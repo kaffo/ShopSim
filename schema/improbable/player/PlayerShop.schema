@@ -1,0 +1,23 @@
+package improbable.player;
+
+import "improbable/vector3.schema";
+import "improbable/core/Quaternion.schema";
+
+enum ItemType {
+  PLAYER = 0;
+}
+
+type ShopItem {
+	improbable.Vector3f local_position = 1;
+	improbable.core.Quaternion rotation = 2;
+	ItemType item_type = 3;
+}
+
+type ShopItemRequest{}
+type ShopItemResponse{}
+
+component PlayerShop {
+  id = 1004;
+  list<ShopItem> shop_items = 1;
+  command ShopItemResponse shop_item_use(ShopItemRequest);
+}
